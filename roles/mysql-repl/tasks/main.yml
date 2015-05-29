@@ -18,8 +18,9 @@
 - name: set mysql root password
   mysql_user:
     name=root
-    host=127.0.0.1
+    host=localhost
     password={{ mysql_root_pass }}
+    check_implicit_admin=yes
 
 - name: put .my.cnf
   template:
