@@ -18,19 +18,8 @@
 - name: set mysql root password
   mysql_user:
     name=root
-    host=localhost
+    host=127.0.0.1
     password={{ mysql_root_pass }}
-  ignore_errors: true
-  register: root_password_status 
-
-- name: Trying new password set in var [mysql_root_pass]
-  mysql_user:
-    name=root
-    host=localhost
-    password={{ mysql_root_pass }}
-    login_password={{ mysql_root_pass }}
-    login_user=root
-  when: root_password_status|failed 
 
 - name: put .my.cnf
   template:
