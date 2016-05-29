@@ -1,12 +1,12 @@
 ---
 - hosts: mysql-master
-  sudo: yes
+  become: true
   roles:
     - common
     - mysql-repl
 
 - hosts: mysql-slave
-  sudo: yes
+  become: true
   roles:
     - common
     - mysql-repl
